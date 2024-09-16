@@ -1,0 +1,10 @@
+---
+- name: Set hostname
+  hostname:
+    name: "{{ foundation_hostname | default(hostname) }}"
+  when: foundation_hostname is defined or hostname is defined
+
+- name: Set timezone
+  timezone:
+    name: "{{ foundation_timezone | default(timezone)}}"
+  when: foundation_timezone is defined or timezone is defined
